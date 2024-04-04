@@ -2,17 +2,35 @@
 <html xmlns:th="//http:www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 <title>Update Book</title>
 </head>
 <body>
 	<h2>Updating a Book</h2>
 	<form th:object="${updateBook}" th:action="@{/update/{id}(id=${updateBook.id})}" method='post'>
-		Title: <input name="title" size="20" th:field="*{title}"><br/>
-		Author: <input name="author" size="20" th:field="*{author}"><br/>
-		Book Type: <input name="bookInfo.bookType" size="20" th:field="*{bookInfo.bookType}"><br/>
-		Genre: <input name="bookInfo.genre" size="20" th:field="*{bookInfo.genre}"><br/>
-		Amount of Pages: <input name="bookInfo.pages" size="20" th:field="*{bookInfo.pages}"><br/>
-		<input name="submit" type="submit" value="Submit"/>
+		<div class="form-group">
+			Title: <input name="title" size="20" th:field="*{title}">
+			<p class="alert alert-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p><br/>
+		</div>	
+		<div>
+			Author: <input name="author" size="20" th:field="*{author}">
+			<p class="alert alert-danger" th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></p><br/>
+		</div>
+		<div>
+			Book Type: <input name="bookInfo.bookType" size="20" th:field="*{bookInfo.bookType}">
+			<p class="alert alert-danger" th:if="${#fields.hasErrors('bookInfo.bookType')}" th:errors="*{bookInfo.bookType}"></p><br/>
+		</div>
+		<div>
+			Genre: <input name="bookInfo.genre" size="20" th:field="*{bookInfo.genre}">
+			<p class="alert alert-danger" th:if="${#fields.hasErrors('bookInfo.genre')}" th:errors="*{bookInfo.genre}"></p><br/>
+		</div>
+		<div>
+			Amount of Pages: <input name="bookInfo.pages" size="20" th:field="*{bookInfo.pages}">
+			<p class="alert alert-danger" th:if="${#fields.hasErrors('bookInfo.pages')}" th:errors="*{bookInfo.pages}"></p><br/>
+		</div>
+		<div class="form-group">
+			<input name="submit" type="submit" value="Submit"/>
+		</div>
 	</form>
 	<a href="viewAll">View All Books</a>
 </body>

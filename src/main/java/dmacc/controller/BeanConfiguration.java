@@ -26,7 +26,8 @@ public class BeanConfiguration {
 	
 	@Bean
 	public BookInfo bookInfo() {
-		BookInfo bean = new BookInfo("Paper", "Fiction", 570);
+//		BookInfo bean = new BookInfo("Paper", "Fiction", 570);
+		BookInfo bean = new BookInfo();
 		return bean;
 	}
 	
